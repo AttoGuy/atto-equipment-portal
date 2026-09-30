@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atto Equipment Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <div class="brand"><div class="atto">Atto</div><div class="systems">Systems LLC</div></div>
+  <div class="portal-title">Equipment Service Portal</div>
+</header>
+
+<section id="identify" class="card">
+  <h1>Equipment</h1>
+  <p class="muted">Scan the equipment barcode or enter the EQ number.</p>
+  <div class="eqrow"><b>EQ-</b><input id="eq" inputmode="numeric" placeholder="00400"></div>
+  <button class="primary" id="continue">Continue</button>
+  <button class="secondary" id="barcode">Scan Equipment Barcode</button>
+  <div id="message"></div>
+</section>
+
+<section id="equipmentCard" class="card hidden">
+  <div class="topline">
+    <div><span class="eyebrow">Equipment ID</span><strong id="eqView"></strong></div>
+    <button class="link" id="change">Change</button>
+  </div>
+
+  <div class="equipment">
+    <h2>Equipment Information</h2>
+    <p class="muted small">Verify or edit the information for this request. Changes made here are saved only with the request.</p>
+    <div class="grid">
+      <label>Make<input id="make"></label>
+      <label>Model<input id="model"></label>
+      <label>Serial Number<input id="serial"></label>
+      <label>Location<input id="location"></label>
+      <label>Branch<input id="branch"></label>
+    </div>
+  </div>
+
+  <nav>
+    <button class="tab active" data-panel="toner">Toner</button>
+    <button class="tab" data-panel="service">Service</button>
+    <button class="tab" data-panel="clicks">Clicks</button>
+  </nav>
+
+  <section id="toner" class="panel active">
+    <h2>Toner</h2>
+    <div class="toner"><span class="dot cyan"></span><span>Cyan</span><input id="cyan" type="number" min="0" placeholder="Qty"></div>
+    <div class="toner"><span class="dot magenta"></span><span>Magenta</span><input id="magenta" type="number" min="0" placeholder="Qty"></div>
+    <div class="toner"><span class="dot yellow"></span><span>Yellow</span><input id="yellow" type="number" min="0" placeholder="Qty"></div>
+    <div class="toner"><span class="dot black"></span><span>Black</span><input id="black" type="number" min="0" placeholder="Qty"></div>
+    <button class="primary submit" data-type="toner">Submit Toner Request</button>
+  </section>
+
+  <section id="service" class="panel">
+    <h2>Service</h2>
+    <label>Problem Reported<textarea id="problem" rows="4"></textarea></label>
+    <div class="grid two">
+      <label>Your Name<input id="user"></label>
+      <label>Phone<input id="phone"></label>
+      <label>Extension<input id="ext"></label>
+      <label>Preferred Date/Time<input id="preferred" type="datetime-local"></label>
+    </div>
+    <button class="primary submit" data-type="service">Submit Service Request</button>
+  </section>
+
+  <section id="clicks" class="panel">
+    <h2>Clicks</h2>
+    <div class="grid two">
+      <label>Black / B&amp;W<input id="mb" inputmode="numeric"></label>
+      <label>Color<input id="mc" inputmode="numeric"></label>
+      <label>Scan<input id="ms" inputmode="numeric"></label>
+      <label>Total<input id="mt" inputmode="numeric"></label>
+      <label>Your Name<input id="meterUser"></label>
+    </div>
+    <button class="primary submit" data-type="clicks">Submit Meter Reading</button>
+  </section>
+
+  <div id="success" class="success hidden"></div>
+</section>
+
+<footer><b>For service or supplies</b><br>Call / Text (773) 708-4091<br>gabe.copier@gmail.com</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
